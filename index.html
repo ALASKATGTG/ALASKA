@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#202226">
-<title>ALASKA</title>
+<meta name="theme-color" content="#191a1e">
+
+<title>ALASKA — Personal Page</title>
 
 <style>
 :root {
@@ -12,7 +13,7 @@
     --card: #25272d;
     --text: #f0f0f2;
     --muted: #92959d;
-    --accent: #c5c8ce;
+    --border: rgba(255,255,255,.08);
 }
 
 * {
@@ -23,10 +24,10 @@
 
 body {
     min-height: 100vh;
+    padding: 35px 16px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 24px;
     font-family: -apple-system, BlinkMacSystemFont,
                  "Segoe UI", sans-serif;
     color: var(--text);
@@ -34,94 +35,106 @@ body {
     background:
         radial-gradient(
             ellipse at 50% 0%,
-            #44474e 0%,
+            #41444b 0%,
             transparent 55%
         ),
-        linear-gradient(
-            145deg,
-            #292b30,
-            #17181c 70%
-        );
+        linear-gradient(145deg, #292b30, #17181c 75%);
 }
 
 .profile {
     width: 100%;
-    max-width: 390px;
-    padding: 38px 28px 30px;
-    text-align: center;
+    max-width: 410px;
+    padding: 12px;
+    overflow: hidden;
 
-    background: rgba(38, 40, 46, 0.82);
-    border: 1px solid rgba(255,255,255,0.09);
+    background: rgba(38,40,46,.88);
+    border: 1px solid var(--border);
     border-radius: 25px;
 
-    box-shadow:
-        0 25px 80px rgba(0,0,0,0.38),
-        inset 0 1px 0 rgba(255,255,255,0.06);
-
+    box-shadow: 0 25px 80px rgba(0,0,0,.4);
     backdrop-filter: blur(20px);
-    animation: appear 0.8s ease;
+
+    animation: appear .8s ease;
 }
 
-.avatar-wrapper {
-    width: 116px;
-    height: 116px;
-    margin: 0 auto 25px;
-    padding: 4px;
-    border-radius: 50%;
+/* BANNER */
 
+.banner {
+    width: 100%;
+    height: 145px;
+    overflow: hidden;
+    border-radius: 17px;
+    background: #34373e;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* AVATAR */
+
+.avatar-wrapper {
+    width: 112px;
+    height: 112px;
+    margin: -48px auto 17px;
+    padding: 4px;
+    position: relative;
+
+    border-radius: 50%;
     background: linear-gradient(
         145deg,
-        #d5d7dc,
-        #555962,
-        #25272d
+        #e0e1e4,
+        #656a74,
+        #292b30
     );
 
-    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    box-shadow: 0 8px 30px rgba(0,0,0,.45);
 }
 
 .avatar {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
     border-radius: 50%;
-    display: block;
-    background: #33363d;
+    background: #34373e;
 }
 
+/* PROFILE INFO */
+
 .name {
-    font-size: 31px;
+    text-align: center;
+    font-size: 30px;
     font-weight: 750;
     letter-spacing: 5px;
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
 .username {
+    text-align: center;
     color: var(--muted);
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 1px;
 }
 
-.line {
-    width: 42px;
-    height: 1px;
-    background: #666a73;
-    margin: 25px auto;
-}
-
 .description {
-    color: #c1c3c9;
+    text-align: center;
+    color: #c2c4ca;
     font-size: 14px;
     line-height: 1.8;
-    font-weight: 400;
-    margin-bottom: 29px;
-    white-space: pre-line;
+    margin: 23px 12px;
 }
+
+/* TELEGRAM */
 
 .telegram {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 11px;
+    align-items: center;
+    gap: 10px;
 
     width: 100%;
     padding: 15px;
@@ -133,27 +146,76 @@ body {
     background: linear-gradient(
         135deg,
         #e0e1e4,
-        #aeb2ba
+        #adb1b9
     );
 
     font-size: 12px;
     font-weight: 750;
     letter-spacing: 2px;
 
-    transition: 0.3s ease;
+    transition: .3s ease;
 }
 
 .telegram:hover {
     transform: translateY(-3px);
-    box-shadow: 0 9px 25px rgba(200,200,210,0.15);
-    filter: brightness(1.08);
+    box-shadow: 0 8px 25px rgba(200,200,210,.16);
+}
+
+/* DIVIDER */
+
+.divider {
+    height: 1px;
+    background: rgba(255,255,255,.08);
+    margin: 27px 3px 23px;
+}
+
+/* GALLERY */
+
+.gallery-title {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 7px;
+}
+
+.gallery-subtitle {
+    text-align: center;
+    color: #777b84;
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-bottom: 17px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+}
+
+.photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+
+    border-radius: 11px;
+    background: #34373e;
+
+    transition: .25s ease;
+}
+
+.photo:hover {
+    filter: brightness(1.12);
 }
 
 .footer {
-    margin-top: 29px;
-    color: #666a73;
-    font-size: 10px;
+    text-align: center;
+    color: #686c75;
+    font-size: 9px;
     letter-spacing: 2px;
+    margin-top: 25px;
+    padding-bottom: 9px;
 }
 
 @keyframes appear {
@@ -161,15 +223,28 @@ body {
         opacity: 0;
         transform: translateY(18px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-max-width: 420px {
-    .profile {
-        padding: 34px 23px 27px;
+max-width: 380px {
+    body {
+        padding: 20px 11px;
+    }
+
+    .banner {
+        height: 125px;
+    }
+
+    .name {
+        font-size: 27px;
+    }
+
+    .gallery {
+        gap: 6px;
     }
 }
 </style>
@@ -179,28 +254,38 @@ max-width: 420px {
 
 <main class="profile">
 
+    <!-- BANNER -->
+    <div class="banner">
+
+
+<img src="banner.jpg" alt="ALASKA banner">
+    </div>
+
+    <!-- AVATAR -->
     <div class="avatar-wrapper">
         <img
             class="avatar"
-            id="avatar"
             src="avatar.jpg"
-            alt="Аватарка ALASKA"
+            alt="ALASKA avatar"
         >
     </div>
 
+    <!-- PROFILE -->
     <h1 class="name">ALASKA</h1>
 
-    <div class="username">@alaskacom</div>
-
-    <div class="line"></div>
+    <div class="username">
+        @alaskacom
+    </div>
 
     <p class="description">
-      давай закроем все окна и двери,
-      будем смотреть в потолок,
-      я помню такое громкое «верь мне», 
-      и тихую пулю в висок
+        Создаю своё.
+
+        Двигаюсь к большему.
+
+        Остаюсь собой.
     </p>
 
+    <!-- TELEGRAM -->
     <a
         class="telegram"
         href="https://t.me/alaskacom"
@@ -209,6 +294,51 @@ max-width: 420px {
     >
         TELEGRAM <span>↗</span>
     </a>
+
+    <div class="divider"></div>
+
+    <!-- PHOTO GALLERY -->
+    <h2 class="gallery-title">
+        MY MOMENTS
+    </h2>
+
+    <p class="gallery-subtitle">
+        A LITTLE PIECE OF MY WORLD
+    </p>
+
+    <div class="gallery">
+
+        <img
+            class="photo"
+            src="photo1.jpg"
+            alt="Photo 1"
+        >
+
+        <img
+            class="photo"
+            src="photo2.jpg"
+            alt="Photo 2"
+        >
+
+        <img
+            class="photo"
+            src="photo3.jpg"
+            alt="Photo 3"
+        >
+
+        <img
+            class="photo"
+            src="photo4.jpg"
+            alt="Photo 4"
+        >
+
+        <img
+            class="photo"
+            src="photo5.jpg"
+            alt="Photo 5"
+        >
+
+    </div>
 
     <div class="footer">
         PERSONAL PAGE · 2026
